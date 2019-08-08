@@ -1,0 +1,58 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Feb  8 12:54:03 2019
+
+@author: MASTER
+"""
+#code for linear search 
+#iterate over the indicies of a list
+def search(L, e):
+    for i in range(len(L)):
+        if L[i] == e:
+            return True
+        if L[i] > e:
+            return False
+    return False
+#iterate over the elements of the list itself
+def search1(L, e):
+    for i in L:
+        if i == e:
+            return True
+        if i > e:
+            return False
+    return False
+
+def search3(L, e):
+    if L[0] == e:
+        return True
+    elif L[0] > e:
+        return False
+    else:
+        return search3(L[1:], e)
+
+testL = [3, 5, 7]
+print(search(testL, 9))
+print(search3(testL, 9))
+##print()
+#print(search3([5], 5))
+#print(search3([1,2,3], 5))
+
+
+def search4(L, e):
+    # Test if the list is empty - if it is, e cannot be in it!
+    # Run this test first - so that we don't throw an error trying
+    #  to access L[0].
+    if L == []:
+        return False
+
+    if L[0] == e:
+        return True
+    elif L[0] > e:
+        return False
+    else:
+        return search3(L[1:], e)
+
+#testL = [5]
+#print(search4(testL, 8))
+#print(search4(testL, 8))
